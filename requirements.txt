@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+psycopg2-binary
+PyMuPDF
+python-dotenv
+sendgrid
+langchain
+openai
+gradio
+pandas

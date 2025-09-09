@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+pyproject.toml
+
+# Env files
+.env
+
+# Local storage
+#storage/
+
+# Virtual environment
+.venv/
+.python-version
+
+# Lock file (optional)
+uv.lock
