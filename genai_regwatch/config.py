@@ -1,10 +1,15 @@
 import os
 from dotenv import load_dotenv
+import pathlib
 
 load_dotenv()
 
 # RBI URL
 RBI_NOTIFICATIONS_URL = "https://rbi.org.in/Scripts/NotificationUser.aspx"
+
+# NHB URL
+NHB_NOTIFICATIONS_URL = "https://www.nhb.org.in/whats-new-2/"
+
 
 # Local storage path
 LOCAL_STORAGE = os.path.join(os.getcwd(), "storage", "raw")
@@ -22,10 +27,20 @@ DB_CONFIG = {
     "port": int(os.getenv("DB_PORT", 5432)),
 }
 
-# OpenAI
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# OLLAMA 
+# Example: http://localhost:11434
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
+# model name you have in Ollama (e.g., "llama2", "mistral", "your-ollama-model")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2:3b")
 
-# SendGrid
-SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
-ALERT_EMAIL_TO = os.getenv("ALERT_EMAIL_TO")
-ALERT_EMAIL_FROM = os.getenv("ALERT_EMAIL_FROM")
+
+# SMTP Email (UPDATED: using direct SMTP instead of SendGrid)
+SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
+SMTP_USER = os.getenv("SMTP_USER", "")
+SMTP_PASS = os.getenv("SMTP_PASS", "")
+ALERT_EMAIL_TO = os.getenv("ALERT_EMAIL_TO", "mainkaromkar13@gmail.com")
+ALERT_EMAIL_FROM = os.getenv("ALERT_EMAIL_FROM", SMTP_USER or "mainkaromkar13@gmail.com")
+
+# Parallel workers
+MAX_WORKERS = int(os.getenv("MAX_WORKERS", 3))

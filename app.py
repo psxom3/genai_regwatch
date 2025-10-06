@@ -84,11 +84,9 @@ def trigger_pipeline_with_status():
 
 # ---- GRADIO UI ----
 with gr.Blocks() as demo:
-    gr.Markdown("# 🏦 RBI Regulatory Watch")
-    gr.Markdown("Scrape RBI updates, view summaries & action items.")
+    gr.Markdown("# 🏦 Regulatory Watch (RBI + NHB)")
+    gr.Markdown("Scrape RBI & NHB updates, view summaries & action items.")
 
-    
-    
     with gr.Tab("🔄 Run Pipeline"):
         run_btn = gr.Button("🚀 Run Scraper + Processor")
         status = gr.Textbox(label="Status", interactive=False)
@@ -101,7 +99,6 @@ with gr.Blocks() as demo:
             fn=trigger_pipeline_with_status,
             outputs=[status, updates_table, summaries_table, actions_table]
         )
-
 
     with gr.Tab("📑 Updates"):
         refresh_updates_btn = gr.Button("Refresh Updates")

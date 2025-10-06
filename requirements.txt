@@ -8,3 +8,6 @@ langchain
 openai
 gradio
 pandas
+python-docx
+playwright
+python-dateutil
